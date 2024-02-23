@@ -7,7 +7,7 @@ from cachetools import TTLCache
 
 
 class AntiFloodMiddleware(BaseMiddleware):
-    def __init__(self, time_limit: int = 2) -> None:
+    def __init__(self, time_limit: int = 1) -> None:
         self.limit = TTLCache(maxsize=10_000, ttl=time_limit)
 
     async def __call__(
