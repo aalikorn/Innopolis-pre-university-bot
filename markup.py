@@ -59,7 +59,7 @@ tg_kb = InlineKeyboardMarkup(
 
 tests_kb = ReplyKeyboardMarkup(
     keyboard=[
-        [KeyboardButton(text="Программирование")],
+        [KeyboardButton(text="Программирование на Python")],
         [KeyboardButton(text="Олимпиадное программирование")],
         [KeyboardButton(text="Информационная безопасность")],
         [KeyboardButton(text="Открыть меню")]

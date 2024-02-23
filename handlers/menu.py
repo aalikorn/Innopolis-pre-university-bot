@@ -1,4 +1,5 @@
 from aiogram import Router
+from aiogram.enums import ParseMode
 from aiogram.types import Message
 import markup
 from aiogram.filters import Command
@@ -11,7 +12,9 @@ router = Router()
 @router.message(Command("menu"))
 async def menu(message: Message,  state: FSMContext):
     await state.set_state(Menu.menu)
-    await message.answer("Меню:\n\nОб олимпиадах: видео о модуле для детей \"Олимпиады для поступления в ИТ-вузы\". Посмотрите и запишитесь на бесплатное обучение!\n\nО поступлении в Университет Иннополис: узнайте условия поступления в наш университет в 2024 году и запишитесь на модуль \"Подготовка к поступлению в ИТ-вузы\" бесплатно!\nПройти квиз: выберите любое направление и попробуйте свои силы на разных уровнях квиза", reply_markup=markup.menu_kb)
+    await message.answer(f"Меню:\n\n<b>Об олимпиадах:</b> видео о модуле для детей \"Олимпиады для поступления в ИТ-вузы\". Посмотрите и запишитесь на бесплатное обучение!\n\n<b>О поступлении в Университет Иннополис:</b> узнайте условия поступления в наш университет в 2024 году и запишитесь на модуль \"Подготовка к поступлению в ИТ-вузы\" бесплатно!\n\n<b>Пройти квиз:</b> выберите любое направление и попробуйте свои силы на разных уровнях квиза",
+                         reply_markup=markup.menu_kb,
+                         parse_mode=ParseMode.HTML)
 
 
 @router.message(Menu.menu)
