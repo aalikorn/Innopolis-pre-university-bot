@@ -12,7 +12,7 @@ router = Router()
 
 @router.message(QuizMenu.game)
 async def handle_answer(message: Message, state: FSMContext):
-    if message.lower == 'завершить квиз':
+    if message.text.lower() == 'завершить квиз':
         current_game.current_question = len(current_game.questions)
     else:
         question = current_game.questions[current_game.current_question]
