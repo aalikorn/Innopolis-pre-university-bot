@@ -21,8 +21,7 @@ async def quiz_choice(message: Message, state: FSMContext):
         await state.update_data(topic="inf_bez")
         await state.update_data(max_points="12")
         await state.set_state(QuizMenu.start_quiz)
-        await message.answer("Квиз состоит из 12 вопросов, после прохождения вы сможете \
-        узнать свой результат. Нажмите 'начать', чтобы начать квиз", reply_markup=start_quiz_kb)
+        await message.answer("Квиз состоит из 12 вопросов, после прохождения вы сможете узнать свой результат. Нажмите 'начать', чтобы начать квиз", reply_markup=start_quiz_kb)
     elif message.text == "Открыть меню":
         await state.set_state(Menu.menu)
         await message.answer("Меню:\n\nОб олимпиадах: видео о модуле для детей \"Олимпиады для поступления в ИТ-вузы\". Посмотрите и запишитесь на бесплатное обучение!\n\nО поступлении в Университет Иннополис: узнайте условия поступления в наш университет в 2024 году и запишитесь на модуль \"Подготовка к поступлению в ИТ-вузы\" бесплатно!\nПройти квиз: выберите любое направление и попробуйте свои силы на разных уровнях квиза", reply_markup=menu_kb)
@@ -48,8 +47,7 @@ async def level_choice(message: Message, state: FSMContext):
         elif topic == "olymp_programming2":
             n = 13
         await state.update_data(max_points=str(n))
-        await message.answer(f"Квиз состоит из {n} вопросов, после прохождения вы сможете \
-                узнать свой результат. Нажмите 'начать', чтобы начать квиз", reply_markup=start_quiz_kb)
+        await message.answer(f"Квиз состоит из {n} вопросов, после прохождения вы сможете узнать свой результат. Нажмите 'начать', чтобы начать квиз", reply_markup=start_quiz_kb)
         await state.set_state(QuizMenu.start_quiz)
 
     else:

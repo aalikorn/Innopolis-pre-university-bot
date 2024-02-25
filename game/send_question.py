@@ -11,7 +11,7 @@ async def send_question(message, current_game):
             await message.answer_photo(photo=question.get("I"), caption=question.get("Q"))
     else:
         options = ReplyKeyboardMarkup(
-            keyboard=[[KeyboardButton(text=option)] for option in question.get("O")],
+            keyboard=[[KeyboardButton(text=option)] for option in question.get("O")] + ['завершить квиз'],
             resize_keyboard=True,
             one_time_keyboard=True,
         )

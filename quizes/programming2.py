@@ -24,17 +24,17 @@ questions = [
      "I": "",
      "A": ["yes"]},
 
-    {"Q": "6. Что выведет эта программа?\n\ns = 11\nfor i in range(100):\n    s += 1\nif s % 10 == 0: break\nprint(s)",
+    {"Q": "6. Что выведет эта программа?\n\ns = 11\nfor i in range(100):\n    s += 1\n    if s % 10 == 0: break\nprint(s)",
      "O": [],
      "I": "",
      "A": ["20"]},
 
-    {"Q": "7. Что выведет эта программа?\n\ns = 0\nfor i in range(1, 5): s += i\n print(s)",
+    {"Q": "7. Что выведет эта программа?\n\ns = 0\nfor i in range(1, 5):\n    s += i\nprint(s)",
      "O": [],
      "I": "",
      "A": ["10"]},
 
-    {"Q": "8. Что выведет эта программа?\n\ns = 1\nwhile s < 10: s *= 2\nprint(s)",
+    {"Q": "8. Что выведет эта программа?\n\ns = 1\nwhile s < 10:\n    s *= 2\nprint(s)",
      "O": [],
      "I": "",
      "A": ["16"]},
@@ -44,7 +44,7 @@ questions = [
      "I": "",
      "A": ["4"]},
 
-    {"Q": "10. Чему будет равно значение f(7)?\n\ndef f(n):\n    if n % 3 == 0:\n        n += 1\n        n *= 2\n        return n\n    elif n % 3 == 1:\n        n *= 2\n        n %= 10\n        return n    \nreturn n",
+    {"Q": "10. Чему будет равно значение f(7)?\n\ndef f(n):\n    if n % 3 == 0:\n        n += 1\n        n *= 2\n        return n\n    elif n % 3 == 1:\n        n *= 2\n        n %= 10\n        return n    \n    return n",
      "O": [],
      "I": "",
      "A": ["4"]}
