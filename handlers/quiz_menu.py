@@ -3,6 +3,7 @@ from aiogram.types import Message
 from states import Menu, QuizMenu
 from aiogram.fsm.context import FSMContext
 from markup import tests_kb, menu_kb, levels_kb, start_quiz_kb
+from aiogram.enums import ParseMode
 
 router = Router()
 
@@ -24,7 +25,9 @@ async def quiz_choice(message: Message, state: FSMContext):
         await message.answer("Квиз состоит из 12 вопросов, после прохождения вы сможете узнать свой результат. Нажмите 'начать', чтобы начать квиз", reply_markup=start_quiz_kb)
     elif message.text == "Открыть меню":
         await state.set_state(Menu.menu)
-        await message.answer("Меню:\n\nОб олимпиадах: видео о модуле для детей \"Олимпиады для поступления в ИТ-вузы\". Посмотрите и запишитесь на бесплатное обучение!\n\nО поступлении в Университет Иннополис: узнайте условия поступления в наш университет в 2024 году и запишитесь на модуль \"Подготовка к поступлению в ИТ-вузы\" бесплатно!\nПройти квиз: выберите любое направление и попробуйте свои силы на разных уровнях квиза", reply_markup=menu_kb)
+        await message.answer("Меню:\n\n<b>Об олимпиадах:</b> видео о модуле для детей \"Олимпиады для поступления в ИТ-вузы\". Посмотрите и запишитесь на бесплатное обучение!\n\n<b>О поступлении в Университет Иннополис:</b> узнайте условия поступления в наш университет в 2024 году и запишитесь на модуль \"Подготовка к поступлению в ИТ-вузы\" бесплатно!\n\n<b>Пройти квиз:</b> выберите любое направление и попробуйте свои силы на разных уровнях квиза",
+                             reply_markup=menu_kb,
+                             parse_mode=ParseMode.HTML)
     else:
         await message.answer("Я вас не понимаю :( Какой квиз вы хотели бы пройти?", reply_markup=tests_kb)
 
