@@ -46,7 +46,7 @@ ituni_kb = InlineKeyboardMarkup(
 
 lending_kb = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text="Узнать больше о подготовке к поступлению в ИТ-вуз", url="https://t.me/dovuziu")],
+        [InlineKeyboardButton(text="Узнать больше о программах обучения", url="https://t.me/dovuziu")],
     ]
 )
 
