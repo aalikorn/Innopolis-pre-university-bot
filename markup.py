@@ -53,7 +53,7 @@ lending_kb = InlineKeyboardMarkup(
 tg_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [InlineKeyboardButton(text="Перейти в Телеграм-канал", url="https://t.me/dovuziu")],
-        [InlineKeyboardButton(text="Перейти в Телеграм-канал", url="https://t.me/dovuziu")]
+        [InlineKeyboardButton(text="Перейти на сайт", url="https://dovuz.innopolis.university/")]
     ]
 )
 
