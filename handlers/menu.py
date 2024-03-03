@@ -27,12 +27,12 @@ async def menu_actions(message: Message,  state: FSMContext):
                              reply_markup=markup.menu_kb,
                              parse_mode=ParseMode.HTML)
     elif message.text == "О поступлении в Университет Иннополис":
-        await message.answer("Меню: ",
-                             reply_markup=markup.menu_kb,
-                             parse_mode=ParseMode.HTML)
         await message.answer_video(video='BAACAgIAAxkBAAMkZc_aJxPfEIOZt2rF-7iy949aWUYAAjU3AAJNroFKN58-IQ4MA_s0BA',
                                    caption="Узнайте условия поступления в Университет Иннополис в 2024 году",
                                    reply_markup=markup.ituni_kb)
+        await message.answer("Меню: ",
+                             reply_markup=markup.menu_kb,
+                             parse_mode=ParseMode.HTML)
     elif message.text == "Пройти квиз":
         await state.set_state(Menu.quiz)
         await message.answer("Выберите направление", reply_markup=markup.tests_kb)
