@@ -34,13 +34,13 @@ link_kb = InlineKeyboardMarkup(
 
 free_kb = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text="Перейти на бесплатный образовательный модуль для школьников", url="https://t.me/dovuziu")],
+        [InlineKeyboardButton(text="Узнать больше об олимпиадах", url="https://learn.innopolis.university/invite/3JH9N")],
     ]
 )
 
 ituni_kb = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text="Перейти на бесплатный модуль \"Подготовка к поступлению в Ит-вузы\"", url="https://t.me/dovuziu")],
+        [InlineKeyboardButton(text="Перейти на бесплатный модуль \"Подготовка к поступлению в Ит-вузы\"", url="https://learn.innopolis.university/invite/XVYPS")],
     ]
 )
 
