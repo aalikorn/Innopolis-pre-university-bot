@@ -40,7 +40,7 @@ free_kb = InlineKeyboardMarkup(
 
 ituni_kb = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text="Перейти на бесплатный модуль \"Подготовка к поступлению в Ит-вузы\"", url="https://learn.innopolis.university/invite/XVYPS")],
+        [InlineKeyboardButton(text="Подготовка к поступлению в Ит-вузы", url="https://learn.innopolis.university/invite/XVYPS")],
     ]
 )
 
