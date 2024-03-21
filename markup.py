@@ -28,7 +28,7 @@ link_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [InlineKeyboardButton(text="Телеграм-канал Довуза", url="https://t.me/dovuziu ")],
         [InlineKeyboardButton(text="Сайт Довуза", url="https://dovuz.innopolis.university/")],
-        [InlineKeyboardButton(text="Информация о летних курсах 2024", url="https://dovuz.innopolis.university/")],
+        [InlineKeyboardButton(text="Информация о летних курсах 2024", url="https://dovuz.innopolis.university/offline-programms")],
     ]
 )
 
@@ -46,14 +46,15 @@ ituni_kb = InlineKeyboardMarkup(
 
 lending_kb = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text="Узнать больше о программах обучения", url="https://t.me/dovuziu")],
+        [InlineKeyboardButton(text="Узнать больше о программах обучения", url="https://dovuz.innopolis.university/offline-programms")],
     ]
 )
 
 tg_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [InlineKeyboardButton(text="Перейти в Телеграм-канал", url="https://t.me/dovuziu")],
-        [InlineKeyboardButton(text="Перейти на сайт", url="https://dovuz.innopolis.university/")]
+        [InlineKeyboardButton(text="Перейти на сайт", url="https://dovuz.innopolis.university/")],
+        [InlineKeyboardButton(text="Узнать больше о программах обучения", url="https://dovuz.innopolis.university/offline-programms")]
     ]
 )
 
