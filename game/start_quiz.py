@@ -7,9 +7,8 @@ from quizes import inf_bez, olymp_programming2, olymp_programming1, programming1
 from game.send_question import send_question
 from game.variables import Variables
 
-
-current_game = Variables()
 router = Router()
+
 
 @router.message(QuizMenu.start_quiz)
 async def quiz(message: Message, state: FSMContext):
@@ -19,6 +18,7 @@ async def quiz(message: Message, state: FSMContext):
     elif message.text != "Начать":
         await message.answer("Я Вас не понимаю :( Нажмите 'начать', чтобы начать квиз", reply_markup=start_quiz_kb)
     else:
+        current_game = Variables()
         await state.set_state(QuizMenu.game)
         data_dict = await state.get_data()
         topic = data_dict.get("topic")
@@ -38,7 +38,5 @@ async def quiz(message: Message, state: FSMContext):
             current_game.questions = olymp_programming2.questions
         elif topic == "inf_bez":
             current_game.questions = inf_bez.questions
+        await state.update_data(current_game=current_game)
         await send_question(message, current_game)
-
-
-
