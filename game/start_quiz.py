@@ -8,12 +8,11 @@ from game.send_question import send_question
 from game.variables import Variables
 
 
-# current_game = Variables()
+current_game = Variables()
 router = Router()
 
 @router.message(QuizMenu.start_quiz)
 async def quiz(message: Message, state: FSMContext):
-    current_game = Variables()
     if message.text == "Выбрать другой квиз":
         await state.set_state(Menu.quiz)
         await message.answer("Выберите направление", reply_markup=tests_kb)
@@ -21,7 +20,6 @@ async def quiz(message: Message, state: FSMContext):
         await message.answer("Я Вас не понимаю :( Нажмите 'начать', чтобы начать квиз", reply_markup=start_quiz_kb)
     else:
         await state.set_state(QuizMenu.game)
-        await state.update_data(person=current_game)
         data_dict = await state.get_data()
         topic = data_dict.get("topic")
         max_points = data_dict.get("max_points")
