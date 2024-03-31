@@ -9,11 +9,10 @@ from game import handle_answer, start_quiz, finish_quiz
 from aiogram.fsm.storage.redis import RedisStorage
 
 
-
 async def main():
     bot = Bot(config.bot_token.get_secret_value())
-    storage = RedisStorage.from_url("redis://localhost:6379/0")
-    dp = Dispatcher(storage=storage)
+    # storage = RedisStorage.from_url("redis://localhost:6379/0")
+    dp = Dispatcher()
     dp.message.middleware(AntiFloodMiddleware())
     dp.include_routers(
         form.router,
