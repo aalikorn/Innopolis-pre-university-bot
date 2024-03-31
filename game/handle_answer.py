@@ -4,7 +4,7 @@ from states import Menu, QuizMenu
 from aiogram.fsm.context import FSMContext
 from game.send_question import send_question
 from game.finish_quiz import finish_quiz
-
+from game.start_quiz import current_game
 
 
 router = Router()
@@ -12,8 +12,6 @@ router = Router()
 
 @router.message(QuizMenu.game)
 async def handle_answer(message: Message, state: FSMContext):
-    data_dict = await state.get_data()
-    current_game = data_dict.get("current_game")
     if message.text.lower() == 'завершить квиз':
         current_game.current_question = len(current_game.questions)
     else:
