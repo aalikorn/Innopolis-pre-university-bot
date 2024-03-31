@@ -1,10 +1,7 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
-from aiogram.fsm.context import FSMContext
 
 
-async def send_question(message, state: FSMContext):
-    data_dict = await state.get_data()
-    current_game = data_dict["person"]
+async def send_question(message, current_game):
     question = current_game.questions[current_game.current_question]
 
     if len(question.get("O")) == 0:
