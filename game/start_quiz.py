@@ -20,11 +20,9 @@ async def quiz(message: Message, state: FSMContext):
         await message.answer("Я Вас не понимаю :( Нажмите 'начать', чтобы начать квиз", reply_markup=start_quiz_kb)
     else:
         await state.set_state(QuizMenu.game)
-        await state.update_data(current_game=Variables())  # Сохраняем экземпляр current_game в контексте
         data_dict = await state.get_data()
         topic = data_dict.get("topic")
         max_points = data_dict.get("max_points")
-        current_game = data_dict.get("current_game")
         current_game.topic = topic
         current_game.points = 0
         current_game.current_question = 0
