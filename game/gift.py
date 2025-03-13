@@ -12,7 +12,7 @@ router = Router()
 
 async def suggest_gift(message: Message, state:FSMContext):
     await state.set_state(QuizMenu.gift)
-    await message.answer("Благодарим за участие! Жмите «Получить подарок» - и вам рандомно выпадает один из призов! (только если вы находитесь на выставке)",
+    await message.answer("Благодарим за участие! Жмите «Получить подарок» - и вам рандомно выпадет один из призов! (только если вы находитесь на выставке)",
                    reply_markup=gift_kb)
 
 
