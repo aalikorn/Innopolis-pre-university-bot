@@ -9,7 +9,7 @@ from aiogram.fsm.storage.redis import RedisStorage
 
 
 async def main():
-    bot = Bot(config.bot_token.get_secret_value(), parse_mode="html")
+    bot = Bot(config.bot_token.get_secret_value())
     storage = RedisStorage.from_url("redis://localhost:6379/0")
     dp = Dispatcher(storage=storage)
     dp.message.middleware(AntiFloodMiddleware())
