@@ -19,7 +19,6 @@ kiwisolver==1.4.5
 magic-filter==1.0.12
 MarkupSafe==2.1.5
 marshmallow==3.20.2
-matplotlib==3.8.2
 multidict==6.0.4
 numpy==1.26.4
 packaging==23.2
