@@ -29,7 +29,7 @@ async def menu_actions(message: Message,  state: FSMContext):
     #                          parse_mode=ParseMode.HTML)
     if message.text == "О подготовке к обучению в ИТ-вузах":
         await message.answer_video(video='BAACAgIAAxkBAAIbwGfSlZp5AAHI2xHzVRIpdjJ2_bSZfAAC82IAAp8akUoAAbO-0WotIHU2BA',
-                                   caption='Посмотри видео-описание бесплатного модуля для школьников «Олимпиады для поступления в ИТ-вуз»',
+                                   caption='Посмотри видео-описание курса для школьников «Подготовка к обучению в ИТ-вузах»',
                                    reply_markup=markup.course_kb)
         await message.answer("Меню: ",
                              reply_markup=markup.menu_kb,
