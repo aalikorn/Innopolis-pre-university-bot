@@ -38,5 +38,5 @@ async def quiz(message: Message, state: FSMContext):
             current_game.questions = olymp_programming2.questions
         elif topic == "inf_bez":
             current_game.questions = inf_bez.questions
-        await state.update_data(current_game=current_game)
+        await state.update_data(current_game=current_game.to_dict())
         await send_question(message, current_game)

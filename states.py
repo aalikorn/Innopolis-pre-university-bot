@@ -22,6 +22,7 @@ class QuizMenu(StatesGroup):
     finish = State()
     try_again = State()
     current_game = State()
+    gift = State()
 
 
 

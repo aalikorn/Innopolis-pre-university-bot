@@ -5,6 +5,15 @@ from aiogram.types import (
     InlineKeyboardButton
 )
 
+gift_kb = ReplyKeyboardMarkup(
+    keyboard=[
+            [KeyboardButton(text="Получить подарок")],
+            [KeyboardButton(text="Вернуться в меню")]
+        ],
+        resize_keyboard=True,
+        one_time_keyboard=True,
+)
+
 to_menu_kb = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text="Меню")],
@@ -15,8 +24,9 @@ to_menu_kb = ReplyKeyboardMarkup(
 
 menu_kb = ReplyKeyboardMarkup(
     keyboard=[
-        [KeyboardButton(text="Об олимпиадах")],
+        [KeyboardButton(text="О подготовке к обучению в ИТ-вузах")],
         [KeyboardButton(text="О поступлении в Университет Иннополис")],
+        [KeyboardButton(text="О поступлении в колледж Университета Иннополис")],
         [KeyboardButton(text="Пройти квиз")],
         [KeyboardButton(text="Контакты")]
     ],
@@ -28,7 +38,7 @@ link_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [InlineKeyboardButton(text="Телеграм-канал Довуза", url="https://t.me/dovuziu ")],
         [InlineKeyboardButton(text="Сайт Довуза", url="https://dovuz.innopolis.university/")],
-        [InlineKeyboardButton(text="Информация о летних курсах 2024", url="https://dovuz.innopolis.university/offline-programms")],
+        [InlineKeyboardButton(text="Информация о летних курсах 2025", url="https://dovuz.innopolis.university/offline-programms")],
     ]
 )
 
@@ -44,9 +54,27 @@ ituni_kb = InlineKeyboardMarkup(
     ]
 )
 
+ituni_kb_new = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Узнать подробнее", url="https://apply.innopolis.university/")],
+    ]
+)
+
+college_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Узнать подробнее", url="https://innopolis.college/")],
+    ]
+)
+
+course_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Узнать о курсах", url="https://dovuz.innopolis.university/preparation")],
+    ]
+)
+
 lending_kb = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text="Узнать больше о программах обучения", url="https://dovuz.innopolis.university/offline-programms")],
+        [InlineKeyboardButton(text="Узнать подробнее", url="https://dovuz.innopolis.university/offline-programms")],
     ]
 )
 

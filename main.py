@@ -4,12 +4,12 @@ from aiogram import Bot, Dispatcher
 from handlers import form, menu, quiz_menu, start
 from config_reaader import config
 from antiflood import AntiFloodMiddleware
-from game import handle_answer, start_quiz, finish_quiz
+from game import handle_answer, start_quiz, finish_quiz, gift
 from aiogram.fsm.storage.redis import RedisStorage
 
 
 async def main():
-    bot = Bot(config.bot_token.get_secret_value())
+    bot = Bot(config.bot_token.get_secret_value(), parse_mode="html")
     storage = RedisStorage.from_url("redis://localhost:6379/0")
     dp = Dispatcher(storage=storage)
     dp.message.middleware(AntiFloodMiddleware())
@@ -20,7 +20,8 @@ async def main():
         start.router,
         start_quiz.router,
         handle_answer.router,
-        finish_quiz.router
+        finish_quiz.router,
+        gift.router
     )
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
