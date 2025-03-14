@@ -14,6 +14,7 @@ router = Router()
 
 @router.message(Command("form"))
 async def fill_profile(message: Message, state: FSMContext):
+    await state.clear()
     await state.set_state(Form.name)
     await message.answer("Введите имя")
 
