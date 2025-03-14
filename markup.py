@@ -80,7 +80,7 @@ ituni_kb_new = InlineKeyboardMarkup(
 
 college_kb = InlineKeyboardMarkup(
     inline_keyboard=[
-        [InlineKeyboardButton(text="Узнать подробнее", url="https://innopolis.college/")],
+        [InlineKeyboardButton(text="Узнать подробнее", url="https://innopolis.college/?utm_source=telegram&utm_medium=tgbot&utm_campaign=innopolis.college&utm_content=innokotuserbot")],
     ]
 )
 
