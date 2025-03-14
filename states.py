@@ -4,8 +4,14 @@ from aiogram.fsm.state import StatesGroup, State
 class Form(StatesGroup):
     name = State()
     surname = State()
+    phone = State()
     email = State()
     wait = State()
+    grade = State()
+    interests = State()
+    birth_date = State()
+    conf_agreement = State()
+    adds_agreement = State()
 
 
 class Menu(StatesGroup):

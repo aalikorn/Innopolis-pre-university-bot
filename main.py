@@ -14,10 +14,10 @@ async def main():
     dp = Dispatcher(storage=storage)
     dp.message.middleware(AntiFloodMiddleware())
     dp.include_routers(
+        start.router,
         form.router,
         menu.router,
         quiz_menu.router,
-        start.router,
         start_quiz.router,
         handle_answer.router,
         finish_quiz.router,

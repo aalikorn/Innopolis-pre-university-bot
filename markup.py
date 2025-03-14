@@ -5,6 +5,24 @@ from aiogram.types import (
     InlineKeyboardButton
 )
 
+
+agree_conf_kb = ReplyKeyboardMarkup(
+    keyboard=[
+            [KeyboardButton(text="Соглашаюсь, продолжить")]
+        ],
+        resize_keyboard=True,
+        one_time_keyboard=True,
+)
+
+agree_adds_kb = ReplyKeyboardMarkup(
+    keyboard=[
+            [KeyboardButton(text="Соглашаюсь, продолжить")],
+            [KeyboardButton(text="Не соглашаюсь")]
+        ],
+        resize_keyboard=True,
+        one_time_keyboard=True,
+)
+
 gift_kb = ReplyKeyboardMarkup(
     keyboard=[
             [KeyboardButton(text="Получить подарок")],
