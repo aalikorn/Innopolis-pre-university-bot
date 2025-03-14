@@ -44,7 +44,7 @@ menu_kb = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text="О подготовке к обучению в ИТ-вузах")],
         [KeyboardButton(text="О поступлении в Университет Иннополис")],
-        [KeyboardButton(text="О поступлении в колледж Университета Иннополис")],
+        [KeyboardButton(text="О поступлении в колледж Иннополис")],
         [KeyboardButton(text="Пройти квиз")],
         [KeyboardButton(text="Контакты")]
     ],
