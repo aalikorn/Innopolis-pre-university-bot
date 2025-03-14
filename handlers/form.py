@@ -122,9 +122,8 @@ async def form_interests(message: Message, state: FSMContext):
         await message.answer("Спасибо, анкета заполнена! Нажмите /menu, чтобы перейти в меню")
     else:
         await message.answer(
-            "Нажимая кнопку \"завершить регистрацию\", вы соглашаетесь с политикой обработки персональных данных",
-            reply_markup=agree_conf_kb)
-
+            "Я хочу получать по указанным каналам связи рекламную и справочную информацию от Университета Иннополис об образовательных программах, достижениях, проектах и иных новостях",
+            reply_markup=agree_adds_kb)
 
 @router.message(Form.wait)
 async def wait(message: Message):
