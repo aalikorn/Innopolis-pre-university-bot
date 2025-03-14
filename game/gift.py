@@ -20,9 +20,9 @@ async def suggest_gift(message: Message, state:FSMContext):
 async def give_gift(message: Message, state: FSMContext):
     print(1)
     if message.text == "Получить подарок":
-        gifts = ["Браслет", "Блокнот", "Стикерпак", "Свитшот", "Футболка"]
+        gifts = ["Ручка" for i in range(80)] + ["блокнот" for i in range(15)] + ["Свитшот" for i in range(3)] + ["Футболока" for i in range(3)]
         gift = gifts[random.randint(0, len(gifts) - 1)]
-        await message.answer(f"Ваш подарок: {gift}! Если вы сейчас находитесь на выставке, подойдите, пожалуйста, к организаторам и получите приз.")
+        await message.answer(f"Ваш подарок: <b>{gift}!</b> Если вы сейчас находитесь на выставке, подойдите, пожалуйста, к организаторам и получите приз.", parse_mode="html")
         await state.set_state(Menu.menu)
         await message.answer(menuMessage, reply_markup=menu_kb)
     elif message.text == "Вернуться в меню":

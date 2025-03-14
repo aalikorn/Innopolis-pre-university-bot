@@ -57,6 +57,8 @@ link_kb = InlineKeyboardMarkup(
         [InlineKeyboardButton(text="Телеграм-канал Довуза", url="https://t.me/dovuziu ")],
         [InlineKeyboardButton(text="Сайт Довуза", url="https://dovuz.innopolis.university/")],
         [InlineKeyboardButton(text="Информация о летних курсах 2025", url="https://dovuz.innopolis.university/offline-programms")],
+        [InlineKeyboardButton(text="Сайт Колледжа Иннополис", url="https://innopolis.college/?utm_source=telegram&utm_medium=tgbot&utm_campaign=innopolis.college&utm_content=innokotuserbot")],
+        [InlineKeyboardButton(text="Телеграм-канал Колледжа Иннополис", url="https://t.me/+2z9RJrr9tVlhNWUy")],
     ]
 )
 
