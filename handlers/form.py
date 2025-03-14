@@ -96,7 +96,7 @@ async def form_conf(message: Message, state: FSMContext):
     if message.text == "Соглашаюсь, продолжить":
         await state.update_data(conf="yes")
         await state.set_state(Form.adds_agreement)
-        await message.answer("Я хочу получать по указанным каналам связи информацию от Университета Иннополис об образовательных программах, достижениях, проектах и иных новостях",
+        await message.answer("Я хочу получать по указанным каналам связи рекламную и справочную информацию от Университета Иннополис об образовательных программах, достижениях, проектах и иных новостях",
                              reply_markup=agree_adds_kb)
     else:
         await message.answer("Нажимая кнопку \"завершить регистрацию\", вы соглашаетесь с политикой обработки персональных данных",
