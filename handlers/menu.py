@@ -40,8 +40,8 @@ async def menu_actions(message: Message,  state: FSMContext):
         await message.answer("Меню: ",
                              reply_markup=markup.menu_kb,
                              parse_mode=ParseMode.HTML)
-    elif message.text == "О поступлении в колледж Иннополис":
-        await message.answer_video(caption="Приглашаем выпускников 9 класса в колледж Университета Иннополис на направления: «Мехатроника и робототехника» и «Информационные системы и программирование».",
+    elif message.text == "О поступлении в Колледж Иннополис":
+        await message.answer_video(caption="Приглашаем выпускников 9 класса в Колледж Университета Иннополис на направления: «Мехатроника и робототехника» и «Информационные системы и программирование».",
                                    video='BAACAgIAAxkBAAIfpGfUA37tfcsn4ebktnIS5qwjoWSCAAIqZwACzEGgSuibSv3bvp4zNgQ',
                                    reply_markup=markup.college_kb)
         await message.answer("Меню: ",
