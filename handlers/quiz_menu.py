@@ -43,11 +43,10 @@ async def level_choice(message: Message, state: FSMContext):
         data_dict = await state.get_data()
         topic = data_dict.get("topic")
         await state.set_state(QuizMenu.to_quiz)
-        match message.text.lower():
-            case "легче":
-                topic = topic + "1"
-            case "сложнее":
-                topic = topic + "2"
+        if message.text.lower() == "легче":
+            topic = topic + "1"
+        else:
+            topic = topic + "2"
         await state.update_data(topic=topic)
         n = 0
         if topic == "programming1":
