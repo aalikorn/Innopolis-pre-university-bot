@@ -13,11 +13,11 @@ router = Router()
 async def quiz_choice(message: Message, state: FSMContext):
     if message.text == "Программирование на Python":
         await state.update_data(topic="programming")
-        await message.answer("Выберите уровень:\n\n1) Общий уровень\n2) Начальный уровень", reply_markup=levels_kb)
+        await message.answer("Выберите уровень:\n\n1) Легче\n2) Сложнее", reply_markup=levels_kb)
         await state.set_state(QuizMenu.level)
     elif message.text == "Олимпиадное программирование":
         await state.update_data(topic="olymp_programming")
-        await message.answer("Выберите уровень:\n\n1) Общий уровень\n2) Уровень D", reply_markup=levels_kb)
+        await message.answer("Выберите уровень:\n\n1) Легче\n2) Сложнее", reply_markup=levels_kb)
         await state.set_state(QuizMenu.level)
     elif message.text == "Информационная безопасность":
         await state.update_data(topic="inf_bez")
@@ -35,13 +35,17 @@ async def quiz_choice(message: Message, state: FSMContext):
 
 @router.message(QuizMenu.level)
 async def level_choice(message: Message, state: FSMContext):
-    if message.text in ("1", "2"):
+    if message.text.lower() in ("легче", "сложнее"):
         data_dict = await state.get_data()
         topic = data_dict.get("topic")
         await state.set_state(QuizMenu.to_quiz)
-        await state.update_data(topic=topic + message.text)
-        data_dict = await state.get_data()
-        topic = topic + message.text
+        match message.text.lower():
+            case "легче":
+                topic = topic + "1"
+            case "сложнее":
+                topic = topic + "2"
+        await state.update_data(topic=topic)
+        n = 0
         if topic == "programming1":
             n = 10
         elif topic == "programming2":

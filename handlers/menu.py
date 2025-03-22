@@ -12,6 +12,7 @@ router = Router()
 
 @router.message(Command("menu"))
 async def menu(message: Message,  state: FSMContext):
+    print("menu")
     await state.set_state(Menu.menu)
     await message.answer(text=messages.menuMessage,
                          reply_markup=markup.menu_kb,
@@ -20,6 +21,7 @@ async def menu(message: Message,  state: FSMContext):
 
 @router.message(Menu.menu)
 async def menu_actions(message: Message,  state: FSMContext):
+    print(message.text)
     # if message.text == "Об олимпиадах":
     #     await message.answer_video(video='BAACAgIAAxkBAAMjZc_Z5WlS7Yqjjh50XZCFfKtQrkAAAjE3AAJNroFK92i6udsaMSA0BA',
     #                                caption='Посмотри видео-описание бесплатного модуля для школьников «Олимпиады для поступления в ИТ-вуз»',

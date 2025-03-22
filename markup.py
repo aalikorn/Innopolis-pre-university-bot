@@ -119,8 +119,8 @@ tests_kb = ReplyKeyboardMarkup(
 
 levels_kb = ReplyKeyboardMarkup(
     keyboard=[
-            [KeyboardButton(text="1")],
-            [KeyboardButton(text="2")]
+            [KeyboardButton(text="Легче")],
+            [KeyboardButton(text="Сложнее")]
         ],
     resize_keyboard=True,
     one_time_keyboard=True,
