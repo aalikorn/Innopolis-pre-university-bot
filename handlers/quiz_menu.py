@@ -57,7 +57,16 @@ async def level_choice(message: Message, state: FSMContext):
         await state.update_data(max_points=str(n))
         await message.answer(f"Квиз состоит из {n} вопросов, после прохождения вы сможете узнать свой результат. Нажмите 'начать', чтобы начать квиз", reply_markup=start_quiz_kb)
         await state.set_state(QuizMenu.start_quiz)
-
+    elif message.text.lower() == "назад":
+        await state.update_data(topic="")
+        await state.set_state(Menu.quiz)
+        await message.answer("Выберите направление", reply_markup=tests_kb)
+    elif message.text.lower() == "открыть меню":
+        await message.answer(
+            text = messages.menuMessage,
+            reply_markup=menu_kb,
+            parse_mode=ParseMode.HTML)
+        await state.set_state(Menu.menu)
     else:
         await message.answer("Я вас не понимаю :( Выберите уровень:\n\n1) Общий уровень\n2) Уровень D",
                              reply_markup=levels_kb)

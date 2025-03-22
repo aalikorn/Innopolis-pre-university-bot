@@ -12,7 +12,6 @@ router = Router()
 
 @router.message(Command("menu"))
 async def menu(message: Message,  state: FSMContext):
-    print("menu")
     await state.set_state(Menu.menu)
     await message.answer(text=messages.menuMessage,
                          reply_markup=markup.menu_kb,
@@ -54,7 +53,7 @@ async def menu_actions(message: Message,  state: FSMContext):
         await message.answer("Выберите направление", reply_markup=markup.tests_kb)
     elif message.text == "Контакты":
         await message.answer("Наши контакты:", reply_markup=markup.link_kb)
-        await message.answer("Меню: ",
+        await message.answer(messages.menuMessage,
                              reply_markup=markup.menu_kb,
                              parse_mode=ParseMode.HTML)
     elif message.text in ("/start", "/menu"):

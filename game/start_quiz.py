@@ -6,6 +6,7 @@ from markup import tests_kb, menu_kb, start_quiz_kb
 from quizes import inf_bez, olymp_programming2, olymp_programming1, programming1, programming2
 from game.send_question import send_question
 from game.variables import Variables
+import messages
 
 router = Router()
 
@@ -15,6 +16,12 @@ async def quiz(message: Message, state: FSMContext):
     if message.text == "Выбрать другой квиз":
         await state.set_state(Menu.quiz)
         await message.answer("Выберите направление", reply_markup=tests_kb)
+    elif message.text.lower() == "открыть меню":
+        await message.answer(
+            text=messages.menuMessage,
+            reply_markup=menu_kb,
+            parse_mode="html")
+        await state.set_state(Menu.menu)
     elif message.text != "Начать":
         await message.answer("Я Вас не понимаю :( Нажмите 'начать', чтобы начать квиз", reply_markup=start_quiz_kb)
     else:

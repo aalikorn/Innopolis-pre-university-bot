@@ -5,6 +5,7 @@ from aiogram import Router
 from states import Menu, QuizMenu
 from aiogram.enums import ParseMode
 from game.gift import suggest_gift
+from messages import menuMessage
 
 router = Router()
 
@@ -83,7 +84,7 @@ async def what(message: Message, state: FSMContext):
         await state.set_state(Menu.quiz)
     elif message.text == "Открыть меню":
         await message.answer(
-            "Меню:\n\n<b>О поступлении в Университет Иннополис:</b> узнайте условия поступления в наш университет в 2024 году и запишитесь на модуль \"Подготовка к поступлению в ИТ-вузы\" бесплатно!\n\n<b>Пройти квиз:</b> выберите любое направление и попробуйте свои силы на разных уровнях квиза",
+            text=menuMessage,
             reply_markup=menu_kb,
             parse_mode=ParseMode.HTML)
         await state.set_state(Menu.menu)

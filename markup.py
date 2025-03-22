@@ -120,7 +120,9 @@ tests_kb = ReplyKeyboardMarkup(
 levels_kb = ReplyKeyboardMarkup(
     keyboard=[
             [KeyboardButton(text="Легче")],
-            [KeyboardButton(text="Сложнее")]
+            [KeyboardButton(text="Сложнее")],
+            [KeyboardButton(text="Назад")],
+            [KeyboardButton(text="Открыть меню")]
         ],
     resize_keyboard=True,
     one_time_keyboard=True,
@@ -129,7 +131,8 @@ levels_kb = ReplyKeyboardMarkup(
 start_quiz_kb = ReplyKeyboardMarkup(
     keyboard=[
             [KeyboardButton(text="Начать")],
-            [KeyboardButton(text="Выбрать другой квиз")]
+            [KeyboardButton(text="Выбрать другой квиз")],
+            [KeyboardButton(text="Открыть меню")]
         ],
     resize_keyboard=True,
     one_time_keyboard=True,
