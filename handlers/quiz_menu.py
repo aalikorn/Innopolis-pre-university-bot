@@ -29,6 +29,10 @@ async def quiz_choice(message: Message, state: FSMContext):
         await message.answer(text=messages.menuMessage,
                              reply_markup=menu_kb,
                              parse_mode=ParseMode.HTML)
+    elif message.text == "Для колледжа: ИТ или Робототехника":
+        await state.update_data(topic="college")
+        await message.answer("Тест поможет вам определиться какаой путь выбрать: ИТ или Робототехника. Тест состоит из 6 вопросов.  Нажмите 'начать', чтобы начать тест.", reply_markup=start_quiz_kb)
+        await state.set_state(QuizMenu.start_quiz)
     else:
         await message.answer("Я вас не понимаю :( Какой квиз вы хотели бы пройти?", reply_markup=tests_kb)
 

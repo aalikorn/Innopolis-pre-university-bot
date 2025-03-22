@@ -1,11 +1,11 @@
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
-from markup import try_again_kb, lending_kb, tg_kb, what_kb, tests_kb, menu_kb, start_quiz_kb
+from markup import try_again_kb, lending_kb, tg_kb, what_kb, tests_kb, menu_kb, start_quiz_kb, college_links_kb
 from aiogram import Router
 from states import Menu, QuizMenu
 from aiogram.enums import ParseMode
 from game.gift import suggest_gift
-from messages import menuMessage
+from messages import menuMessage, collegeFinishQuizMessage
 
 router = Router()
 
@@ -74,6 +74,25 @@ async def finish_quiz(message, current_game, state: FSMContext):
     elif current_game.topic == "inf_bez":
         await message.answer(f"Ваш результат: {points}/{current_game.max_points}. Спасибо за участие! Следите за новостями в Телеграм-канале Довуза Университета Иннополис", reply_markup=tg_kb)
         # await message.answer("Хотите вернуться в меню, или попробовать другой квиз?", reply_markup=what_kb)
+        await suggest_gift(message, state)
+
+    elif current_game.topic == "college":
+        data = await state.get_data()
+        it = data.get("it")
+        r = data.get("r")
+        o = data.get("o")
+        text = ""
+        if it > r:
+            text = "Вам больше подходит направление ИТ!"
+        elif r > it:
+            text = "Вам больше подходит направление Робототехника!"
+        else:
+            text = "Вы - универсал! Вам одинаково подходят оба направления, и ИТ, и Робототехника."
+        text += "\n" + collegeFinishQuizMessage
+        await message.answer(
+            text=text,
+            reply_markup=college_links_kb
+        )
         await suggest_gift(message, state)
 
 

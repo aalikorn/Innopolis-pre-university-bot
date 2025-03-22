@@ -86,6 +86,14 @@ college_kb = InlineKeyboardMarkup(
     ]
 )
 
+college_links_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Оставляйте заявку", url="https://innopolis.college/?utm_source=telegram&utm_medium=tgbot&utm_campaign=innopolis.college&utm_content=IUCollege_bot")],
+        [InlineKeyboardButton(text="Telegram", url="https://t.me/+2z9RJrr9tVlhNWUy")],
+        [InlineKeyboardButton(text="VK", url="https://t.me/+2z9RJrr9tVlhNWUy")]
+    ]
+)
+
 course_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [InlineKeyboardButton(text="Узнать о курсах", url="https://dovuz.innopolis.university/preparation")],
@@ -111,6 +119,7 @@ tests_kb = ReplyKeyboardMarkup(
         [KeyboardButton(text="Программирование на Python")],
         [KeyboardButton(text="Олимпиадное программирование")],
         [KeyboardButton(text="Информационная безопасность")],
+        [KeyboardButton(text="Для колледжа: ИТ или Робототехника")],
         [KeyboardButton(text="Открыть меню")]
     ],
     resize_keyboard=True,

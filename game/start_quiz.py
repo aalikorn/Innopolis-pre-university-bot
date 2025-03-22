@@ -3,7 +3,7 @@ from aiogram.types import Message
 from states import Menu, QuizMenu
 from aiogram.fsm.context import FSMContext
 from markup import tests_kb, menu_kb, start_quiz_kb
-from quizes import inf_bez, olymp_programming2, olymp_programming1, programming1, programming2
+from quizes import inf_bez, olymp_programming2, olymp_programming1, programming1, programming2, college
 from game.send_question import send_question
 from game.variables import Variables
 import messages
@@ -45,5 +45,10 @@ async def quiz(message: Message, state: FSMContext):
             current_game.questions = olymp_programming2.questions
         elif topic == "inf_bez":
             current_game.questions = inf_bez.questions
+        elif topic == "college":
+            current_game.questions = college.questions
+            await state.update_data(it=0)
+            await state.update_data(o=0)
+            await state.update_data(r=0)
         await state.update_data(current_game=current_game.to_dict())
         await send_question(message, current_game)

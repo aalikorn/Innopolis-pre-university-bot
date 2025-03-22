@@ -18,8 +18,18 @@ async def handle_answer(message: Message, state: FSMContext):
         current_game.current_question = len(current_game.questions)
     else:
         question = current_game.questions[current_game.current_question]
-        if message.text.lower() in question.get("A"):
-            current_game.points += 1
+        if data_dict.get("topic") != "college":
+            if message.text.lower() in question.get("A"):
+                current_game.points += 1
+        else:
+            if question.get("map").get(message.text) == "ИТ":
+                await state.update_data(it=data_dict.get("it") + 1)
+            elif question.get("map").get(message.text) == "P":
+                await state.update_data(it=data_dict.get("r") + 1)
+            elif question.get("map").get(message.text) == "О":
+                await state.update_data(it=data_dict.get("o") + 1)
+            else:
+                await state.update_data(it=data_dict.get("o") + 1)
         current_game.current_question += 1
     if current_game.current_question == len(current_game.questions):
         await state.set_state(QuizMenu.finish)
