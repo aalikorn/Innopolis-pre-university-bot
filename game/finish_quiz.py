@@ -81,6 +81,7 @@ async def finish_quiz(message, current_game, state: FSMContext):
         it = data.get("it")
         r = data.get("r")
         o = data.get("o")
+        print(it, r, o)
         text = ""
         if it > r:
             text = "Вам больше подходит направление ИТ!"
