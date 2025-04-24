@@ -12,7 +12,7 @@ router = Router()
 
 async def suggest_gift(message: Message, state:FSMContext):
     await state.set_state(QuizMenu.gift)
-    await message.answer("Благодарим за участие! Жмите «Получить подарок» - и вам рандомно выпадет один из призов! (только если вы находитесь на выставке)",
+    await message.answer("Благодарим за участие! Жмите «Получить подарок» - и вам рандомно выпадет один из призов! (только если вы находитесь на конференции)",
                    reply_markup=gift_kb)
 
 
@@ -20,9 +20,9 @@ async def suggest_gift(message: Message, state:FSMContext):
 async def give_gift(message: Message, state: FSMContext):
     print(1)
     if message.text == "Получить подарок":
-        gifts = ["Ручка" for i in range(80)] + ["блокнот" for i in range(15)] + ["Свитшот" for i in range(3)] + ["Футболока" for i in range(3)]
+        gifts = ["блокнот" for i in range(33)] + ["ручка" for i in range(33)] + ["браслет" for i in range(33)]
         gift = gifts[random.randint(0, len(gifts) - 1)]
-        await message.answer(f"Ваш подарок: <b>{gift}!</b> Если вы сейчас находитесь на выставке, подойдите, пожалуйста, к организаторам и получите приз.", parse_mode="html")
+        await message.answer(f"Ваш подарок: <b>{gift}!</b> Подойдите, пожалуйста, к организаторам и получите приз.", parse_mode="html")
         await state.set_state(Menu.menu)
         await message.answer(menuMessage, reply_markup=menu_kb)
     elif message.text == "Вернуться в меню":
